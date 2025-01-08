@@ -18,11 +18,14 @@ def main(argv):
         if opt in ("-l", "--limit"):
             limit = int(arg)
 
-    sum = 0
-    for i in range(limit):
-        if i % 3 == 0 or i % 5 == 0:
-            sum = sum + i
-    print(sum)
+    print(SumDivisibleBy(limit, 3) +
+          SumDivisibleBy(limit, 5) -
+          SumDivisibleBy(limit, 15))
+
+
+def SumDivisibleBy(limit, n):
+    p = int((limit-1) / n)
+    return int(n*(p*(p+1)) / 2)
 
 
 if __name__ == "__main__":
