@@ -20,15 +20,12 @@ def main(argv):
 
     i = 1
     j = 2
-    sum = 2
-    while True:
-        next_in_series = i + j
-        i = j
-        j = next_in_series
-        if j > limit:
-            break
-        if j % 2 == 0:
-            sum = sum + j
+    sum = 0
+    while j < limit:
+        sum = sum + j
+        i, j = j, i+j  # odd
+        i, j = j, i+j  # odd
+        i, j = j, i+j  # even
 
     print(sum)
 
