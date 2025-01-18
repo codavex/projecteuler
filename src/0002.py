@@ -5,7 +5,7 @@ import sys
 
 
 def main(argv):
-    limit = 0
+    limit = None
     helpString = f"{sys.argv[0]} -l <limit>"
 
     try:
@@ -19,6 +19,8 @@ def main(argv):
         for opt, arg in opts:
             if opt in ("-l", "--limit"):
                 limit = int(arg)
+        if limit is None:
+            raise ValueError("Limit not set")
     except ValueError:
         print(helpString)
         sys.exit()
