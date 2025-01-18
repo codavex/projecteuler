@@ -6,17 +6,22 @@ import sys
 
 def main(argv):
     limit = 0
+    helpString = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print('0001.py -l <limit>')
+        print(helpString)
         sys.exit()
 
     # sort out options
-    for opt, arg in opts:
-        if opt in ("-l", "--limit"):
-            limit = int(arg)
+    try:
+        for opt, arg in opts:
+            if opt in ("-l", "--limit"):
+                limit = int(arg)
+    except ValueError:
+        print(helpString)
+        sys.exit()
 
     i = 1
     j = 2
