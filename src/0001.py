@@ -5,18 +5,25 @@ import sys
 
 
 def main(argv):
-    limit = 0
+    limit = None
+    helpString = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print('0001.py -l <limit>')
+        print(helpString)
         sys.exit()
 
     # sort out options
-    for opt, arg in opts:
-        if opt in ("-l", "--limit"):
-            limit = int(arg)
+    try:
+        for opt, arg in opts:
+            if opt in ("-l", "--limit"):
+                limit = int(arg)
+        if limit is None:
+            raise ValueError("Limit not set")
+    except ValueError:
+        print(helpString)
+        sys.exit()
 
     print(SumDivisibleBy(limit, 3) +
           SumDivisibleBy(limit, 5) -
