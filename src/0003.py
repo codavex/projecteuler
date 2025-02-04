@@ -31,7 +31,7 @@ def main(argv):
         while limit % factor == 0:
             largestFactor = factor
             limit = limit / factor
-        factor = factor + 1
+        factor += 1
 
     print(largestFactor)
 

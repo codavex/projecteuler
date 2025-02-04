@@ -29,7 +29,7 @@ def main(argv):
     j = 2
     sum = 0
     while j < limit:
-        sum = sum + j
+        sum += j
         i, j = j, i+j  # odd
         i, j = j, i+j  # odd
         i, j = j, i+j  # even
