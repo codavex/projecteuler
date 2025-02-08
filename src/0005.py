@@ -11,6 +11,7 @@ def divByEach(product, limit):
             return False
     return True
 
+
 def main(argv):
     limit = None
     helpString = f"{sys.argv[0]} -l <limit>"
