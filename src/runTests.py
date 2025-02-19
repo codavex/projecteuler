@@ -29,6 +29,8 @@ def main(argv):
     file = open(testFile)
     for line in file:
         command, expected = line.strip().split(",")
+        if command[0] == '#':
+            continue
         actual = os.popen(command).read().strip()
         if expected == actual:
             print(".", end='', flush=True)
