@@ -26,8 +26,8 @@ def main(argv):
         sys.exit()
 
     summation = int(limit * (limit + 1) / 2)
-    sumOfSquares = int(((2*limit) + 1)*(limit + 1)*limit/6)
-    print((summation*summation) - sumOfSquares)
+    sum_of_squares = int(((2*limit) + 1)*(limit + 1)*limit/6)
+    print((summation*summation) - sum_of_squares)
 
 
 if __name__ == "__main__":

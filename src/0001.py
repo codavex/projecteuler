@@ -25,12 +25,12 @@ def main(argv):
         print(usage)
         sys.exit()
 
-    print(SumDivisibleBy(limit, 3) +
-          SumDivisibleBy(limit, 5) -
-          SumDivisibleBy(limit, 15))
+    print(sum_divisible_by(limit, 3) +
+          sum_divisible_by(limit, 5) -
+          sum_divisible_by(limit, 15))
 
 
-def SumDivisibleBy(limit, n):
+def sum_divisible_by(limit, n):
     p = int((limit-1) / n)
     return int(n*(p*(p+1)) / 2)
 

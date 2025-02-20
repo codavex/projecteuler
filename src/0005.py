@@ -1,11 +1,11 @@
 #!/bin/python3
 
 import getopt
-import sympy
 import sys
+import sympy
 
 
-def divByEach(product, limit):
+def div_by_each(product, limit):
     for i in range(1, limit+1):
         if product % i != 0:
             return False
@@ -39,7 +39,7 @@ def main(argv):
         product = product * i
 
     for i in primes:
-        while divByEach(product/i, limit):
+        while div_by_each(product/i, limit):
             product = int(product/i)
 
     print(product)

@@ -29,13 +29,13 @@ def main(argv):
     test = 1
     while len(primes) < limit:
         test += 2
-        if isPrime(test, primes):
+        if is_prime(test, primes):
             primes.append(test)
 
     print(primes[-1])
 
 
-def isPrime(test, primes):
+def is_prime(test, primes):
     for i in primes:
         if test % i == 0:
             return False

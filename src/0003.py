@@ -25,15 +25,15 @@ def main(argv):
         print(usage)
         sys.exit()
 
-    largestFactor = 0
+    largest_factor = 0
     factor = 2
     while limit > 1:
         while limit % factor == 0:
-            largestFactor = factor
+            largest_factor = factor
             limit = limit / factor
         factor += 1
 
-    print(largestFactor)
+    print(largest_factor)
 
 
 if __name__ == "__main__":

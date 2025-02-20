@@ -1,8 +1,8 @@
 #!/bin/python3
 
 import getopt
-import sympy
 import sys
+import sympy
 
 
 def main(argv):

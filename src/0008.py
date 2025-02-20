@@ -3,7 +3,7 @@
 import getopt
 import sys
 
-testString = "73167176531330624919225119674426574742355349194934" \
+TEST_STRING = "73167176531330624919225119674426574742355349194934" \
     "96983520312774506326239578318016984801869478851843" \
     "85861560789112949495459501737958331952853208805511" \
     "12540698747158523863050715693290963295227443043557" \
@@ -46,16 +46,16 @@ def main(argv):
         print(usage)
         sys.exit()
 
-    maxProduct = 0
-    for i in range(len(testString) - limit):
-        testSubstring = testString[i:i+limit]
-        testProduct = 1
-        for j in testSubstring:
-            testProduct = testProduct * int(j)
-        if testProduct > maxProduct:
-            maxProduct = testProduct
+    max_product = 0
+    for i in range(len(TEST_STRING) - limit):
+        test_substring = TEST_STRING[i:i+limit]
+        test_product = 1
+        for j in test_substring:
+            test_product = test_product * int(j)
+        if test_product > max_product:
+            max_product = test_product
 
-    print(maxProduct)
+    print(max_product)
 
 
 if __name__ == "__main__":
