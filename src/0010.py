@@ -27,11 +27,11 @@ def main(argv):
         sys.exit()
 
     primes = sympy.primerange(0, limit)
-    sum = 0
+    summation = 0
     for i in primes:
-        sum += i
+        summation += i
 
-    print(sum)
+    print(summation)
 
 
 if __name__ == "__main__":

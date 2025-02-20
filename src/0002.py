@@ -27,14 +27,14 @@ def main(argv):
 
     i = 1
     j = 2
-    sum = 0
+    summation = 0
     while j < limit:
-        sum += j
+        summation += j
         i, j = j, i+j  # odd
         i, j = j, i+j  # odd
         i, j = j, i+j  # even
 
-    print(sum)
+    print(summation)
 
 
 if __name__ == "__main__":
