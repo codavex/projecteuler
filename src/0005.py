@@ -14,12 +14,12 @@ def divByEach(product, limit):
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -30,7 +30,7 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     primes = sympy.primerange(0, limit)
