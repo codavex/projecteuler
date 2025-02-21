@@ -6,12 +6,12 @@ import sys
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -22,18 +22,18 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
-    largestFactor = 0
+    largest_factor = 0
     factor = 2
     while limit > 1:
         while limit % factor == 0:
-            largestFactor = factor
+            largest_factor = factor
             limit = limit / factor
         factor += 1
 
-    print(largestFactor)
+    print(largest_factor)
 
 
 if __name__ == "__main__":

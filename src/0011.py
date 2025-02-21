@@ -1,10 +1,9 @@
 #!/bin/python3
 
-import getopt
-import numpy
 import sys
+import numpy
 
-testArray = [
+TEST_ARRAY = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75,
         4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
     [49, 49, 99, 40, 17, 81, 18, 57, 60, 87,
@@ -48,51 +47,52 @@ testArray = [
 ]
 
 
-def check(a, b, c, d, currentMax):
-    testProduct = a * b * c * d
-    if testProduct > currentMax:
-        return testProduct
-    return currentMax
-
-
 def main(argv):
     limit = 4
 
-    maxProduct = 0
-    shape = numpy.shape(testArray)
+    max_product = 0
+    shape = numpy.shape(TEST_ARRAY)
     for i in range(shape[0] - limit):
         for j in range(shape[1] - limit):
             # up/down
-            a = testArray[i][j]
-            b = testArray[i+1][j]
-            c = testArray[i+2][j]
-            d = testArray[i+3][j]
-            maxProduct = check(a, b, c, d, maxProduct)
+            a = TEST_ARRAY[i][j]
+            b = TEST_ARRAY[i+1][j]
+            c = TEST_ARRAY[i+2][j]
+            d = TEST_ARRAY[i+3][j]
+            test_value = a * b * c * d
+            if test_value > max_product:
+                max_product = test_value
 
             # left/right
-            a = testArray[i][j]
-            b = testArray[i][j+1]
-            c = testArray[i][j+2]
-            d = testArray[i][j+3]
-            maxProduct = check(a, b, c, d, maxProduct)
+            a = TEST_ARRAY[i][j]
+            b = TEST_ARRAY[i][j+1]
+            c = TEST_ARRAY[i][j+2]
+            d = TEST_ARRAY[i][j+3]
+            test_value = a * b * c * d
+            if test_value > max_product:
+                max_product = test_value
 
             # 1st diagonal
-            a = testArray[i][j]
-            b = testArray[i+1][j+1]
-            c = testArray[i+2][j+2]
-            d = testArray[i+3][j+3]
-            maxProduct = check(a, b, c, d, maxProduct)
+            a = TEST_ARRAY[i][j]
+            b = TEST_ARRAY[i+1][j+1]
+            c = TEST_ARRAY[i+2][j+2]
+            d = TEST_ARRAY[i+3][j+3]
+            test_value = a * b * c * d
+            if test_value > max_product:
+                max_product = test_value
 
     # other diagonal
     for i in range(limit-1, shape[0]):
         for j in range(shape[1] - limit + 1):
-            a = testArray[i][j]
-            b = testArray[i-1][j+1]
-            c = testArray[i-2][j+2]
-            d = testArray[i-3][j+3]
-            maxProduct = check(a, b, c, d, maxProduct)
+            a = TEST_ARRAY[i][j]
+            b = TEST_ARRAY[i-1][j+1]
+            c = TEST_ARRAY[i-2][j+2]
+            d = TEST_ARRAY[i-3][j+3]
+            test_value = a * b * c * d
+            if test_value > max_product:
+                max_product = test_value
 
-    print(maxProduct)
+    print(max_product)
 
 
 if __name__ == "__main__":

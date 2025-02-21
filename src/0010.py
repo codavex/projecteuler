@@ -1,18 +1,18 @@
 #!/bin/python3
 
 import getopt
-import sympy
 import sys
+import sympy
 
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -23,15 +23,15 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     primes = sympy.primerange(0, limit)
-    sum = 0
+    summation = 0
     for i in primes:
-        sum += i
+        summation += i
 
-    print(sum)
+    print(summation)
 
 
 if __name__ == "__main__":

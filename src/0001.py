@@ -6,12 +6,12 @@ import sys
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -22,15 +22,15 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
-    print(SumDivisibleBy(limit, 3) +
-          SumDivisibleBy(limit, 5) -
-          SumDivisibleBy(limit, 15))
+    print(sum_divisible_by(limit, 3) +
+          sum_divisible_by(limit, 5) -
+          sum_divisible_by(limit, 15))
 
 
-def SumDivisibleBy(limit, n):
+def sum_divisible_by(limit, n):
     p = int((limit-1) / n)
     return int(n*(p*(p+1)) / 2)
 

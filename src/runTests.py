@@ -7,12 +7,12 @@ import sys
 
 def main(argv):
     testFile = None
-    helpString = f"{sys.argv[0]} -f <filename>"
+    usage = f"{sys.argv[0]} -f <filename>"
 
     try:
         opts, args = getopt.getopt(argv, "f:", ["filename="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -23,7 +23,7 @@ def main(argv):
         if testFile is None:
             raise ValueError("filename not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     file = open(testFile)

@@ -1,6 +1,5 @@
 #!/bin/python3
 
-import getopt
 import math
 import sys
 

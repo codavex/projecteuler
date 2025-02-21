@@ -1,11 +1,11 @@
 #!/bin/python3
 
 import getopt
-import sympy
 import sys
+import sympy
 
 
-def divByEach(product, limit):
+def div_by_each(product, limit):
     for i in range(1, limit+1):
         if product % i != 0:
             return False
@@ -14,12 +14,12 @@ def divByEach(product, limit):
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -30,7 +30,7 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     primes = sympy.primerange(0, limit)
@@ -39,7 +39,7 @@ def main(argv):
         product = product * i
 
     for i in primes:
-        while divByEach(product/i, limit):
+        while div_by_each(product/i, limit):
             product = int(product/i)
 
     print(product)

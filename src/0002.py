@@ -6,12 +6,12 @@ import sys
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -22,19 +22,19 @@ def main(argv):
         if limit is None:
             raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     i = 1
     j = 2
-    sum = 0
+    summation = 0
     while j < limit:
-        sum += j
+        summation += j
         i, j = j, i+j  # odd
         i, j = j, i+j  # odd
         i, j = j, i+j  # even
 
-    print(sum)
+    print(summation)
 
 
 if __name__ == "__main__":

@@ -6,12 +6,12 @@ import sys
 
 def main(argv):
     limit = None
-    helpString = f"{sys.argv[0]} -l <limit>"
+    usage = f"{sys.argv[0]} -l <limit>"
 
     try:
         opts, args = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     # sort out options
@@ -22,20 +22,20 @@ def main(argv):
             if limit is None:
                 raise ValueError("Limit not set")
     except ValueError:
-        print(helpString)
+        print(usage)
         sys.exit()
 
     primes = [2]
     test = 1
     while len(primes) < limit:
         test += 2
-        if isPrime(test, primes):
+        if is_prime(test, primes):
             primes.append(test)
 
     print(primes[-1])
 
 
-def isPrime(test, primes):
+def is_prime(test, primes):
     for i in primes:
         if test % i == 0:
             return False

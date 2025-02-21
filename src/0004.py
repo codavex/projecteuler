@@ -1,19 +1,18 @@
 #!/bin/python3
 
-import getopt
 import sys
 
 
 def main(argv):
-    largestPalindrome = 0
+    largest_palindrome = 0
     for i in range(100, 999):
         for j in range(i, 999):
             product = i * j
-            if product > largestPalindrome:
+            if product > largest_palindrome:
                 if str(product) == str(product)[::-1]:
-                    largestPalindrome = product
+                    largest_palindrome = product
 
-    print(largestPalindrome)
+    print(largest_palindrome)
 
 
 if __name__ == "__main__":
