@@ -9,7 +9,7 @@ def main(argv):
     usage = f"{sys.argv[0]} -l <limit>"
 
     try:
-        opts, args = getopt.getopt(argv, "l:", ["limit="])
+        opts, _ = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
         print(usage)
         sys.exit()
