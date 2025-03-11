@@ -25,8 +25,8 @@ def main(argv):
         print(usage)
         sys.exit()
 
-    maxChain = 0
-    maxStartingValue = 0
+    max_chain = 0
+    max_starting_value = 0
     for i in range(1, limit):
         test = i
         chain = 1
@@ -36,11 +36,11 @@ def main(argv):
                 test = int(test / 2)
             else:
                 test = (3 * test) + 1
-        if chain > maxChain:
-            maxChain = chain
-            maxStartingValue = i
+        if chain > max_chain:
+            max_chain = chain
+            max_starting_value = i
 
-    print(maxStartingValue)
+    print(max_starting_value)
 
 
 if __name__ == "__main__":
