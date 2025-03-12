@@ -1,15 +1,7 @@
 #!/bin/python3
 
 import getopt
-import math
 import sys
-
-
-def calculate_routes(value):
-    n_factorial = math.factorial(2 * value)
-    r_factorial = math.factorial(value)
-    n_minus_r_factorial = math.factorial(value)
-    return int((n_factorial / r_factorial) / n_minus_r_factorial)
 
 
 def main(argv):
@@ -17,7 +9,7 @@ def main(argv):
     usage = f"{sys.argv[0]} -l <limit>"
 
     try:
-        opts, args = getopt.getopt(argv, "l:", ["limit="])
+        opts, _ = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
         print(usage)
         sys.exit()
@@ -27,13 +19,20 @@ def main(argv):
         for opt, arg in opts:
             if opt in ("-l", "--limit"):
                 limit = int(arg)
-            if limit is None:
-                raise ValueError("Limit not set")
+        if limit is None:
+            raise ValueError("Limit not set")
     except ValueError:
         print(usage)
         sys.exit()
 
-    print(calculate_routes(limit))
+    print(sum_divisible_by(limit, 3) +
+          sum_divisible_by(limit, 5) -
+          sum_divisible_by(limit, 15))
+
+
+def sum_divisible_by(limit, n):
+    p = int((limit-1) / n)
+    return int(n*(p*(p+1)) / 2)
 
 
 if __name__ == "__main__":

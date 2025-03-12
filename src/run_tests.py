@@ -6,7 +6,7 @@ import sys
 
 
 def main(argv):
-    testFile = None
+    testfile = None
     usage = f"{sys.argv[0]} -f <filename>"
 
     try:
@@ -19,25 +19,24 @@ def main(argv):
     try:
         for opt, arg in opts:
             if opt in ("-f", "--filename"):
-                testFile = arg
-        if testFile is None:
+                testfile = arg
+        if testfile is None:
             raise ValueError("filename not set")
     except ValueError:
         print(usage)
         sys.exit()
 
-    file = open(testFile)
-    for line in file:
-        command, expected = line.strip().split(",")
-        if command[0] == '#':
-            continue
-        actual = os.popen(command).read().strip()
-        if expected == actual:
-            print(".", end='', flush=True)
-        else:
-            print(f"\n{command} - expected {expected} - actual {actual}")
-
-    print("")
+    with open(testfile, encoding="utf-8") as file:
+        for line in file:
+            command, expected = line.strip().split(",")
+            if command[0] == '#':
+                continue
+            actual = os.popen(command).read().strip()
+            if expected == actual:
+                print(".", end='', flush=True)
+            else:
+                print(f"\n{command} - expected {expected} - actual {actual}")
+        print("")
 
 
 if __name__ == "__main__":

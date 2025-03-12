@@ -107,11 +107,9 @@ testNumbers = [
 
 def main(argv):
     summation = 0
-    for i in range(len(testNumbers)):
-        summation += testNumbers[i]
-
-    stringSum = str(summation)
-    print(stringSum[0:10])
+    for i in testNumbers:
+        summation += i
+    print(str(summation)[0:10])
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ def main(argv):
     usage = f"{sys.argv[0]} -l <limit>"
 
     try:
-        opts, args = getopt.getopt(argv, "l:", ["limit="])
+        opts, _ = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
         print(usage)
         sys.exit()
@@ -25,22 +25,9 @@ def main(argv):
         print(usage)
         sys.exit()
 
-    maxChain = 0
-    maxStartingValue = 0
-    for i in range(1, limit):
-        test = i
-        chain = 1
-        while test != 1:
-            chain += 1
-            if test % 2 == 0:
-                test = int(test / 2)
-            else:
-                test = (3 * test) + 1
-        if chain > maxChain:
-            maxChain = chain
-            maxStartingValue = i
-
-    print(maxStartingValue)
+    summation = int(limit * (limit + 1) / 2)
+    sum_of_squares = int(((2*limit) + 1)*(limit + 1)*limit/6)
+    print((summation*summation) - sum_of_squares)
 
 
 if __name__ == "__main__":

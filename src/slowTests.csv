@@ -1,0 +1,7 @@
+./problem_0007.py -l 6,13
+./problem_0007.py -l 10001,104743
+./problem_0010.py -l 10,17
+./problem_0010.py -l 2000000,142913828922
+./problem_0012.py -l 5,28
+./problem_0012.py -l 500,76576500
+./problem_0014.py -l 1000000,837799

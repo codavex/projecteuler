@@ -5,19 +5,12 @@ import sys
 import sympy
 
 
-def div_by_each(product, limit):
-    for i in range(1, limit+1):
-        if product % i != 0:
-            return False
-    return True
-
-
 def main(argv):
     limit = None
     usage = f"{sys.argv[0]} -l <limit>"
 
     try:
-        opts, args = getopt.getopt(argv, "l:", ["limit="])
+        opts, _ = getopt.getopt(argv, "l:", ["limit="])
     except getopt.GetoptError:
         print(usage)
         sys.exit()
@@ -34,15 +27,11 @@ def main(argv):
         sys.exit()
 
     primes = sympy.primerange(0, limit)
-    product = 1
-    for i in range(1, limit+1):
-        product = product * i
-
+    summation = 0
     for i in primes:
-        while div_by_each(product/i, limit):
-            product = int(product/i)
+        summation += i
 
-    print(product)
+    print(summation)
 
 
 if __name__ == "__main__":
