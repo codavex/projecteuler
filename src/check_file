@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pylint $1
+pycodestyle $1

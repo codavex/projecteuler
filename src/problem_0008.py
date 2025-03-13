@@ -1,5 +1,7 @@
 #!/bin/python3
 
+""" https://projecteuler.net/problem=8 """
+
 import getopt
 import sys
 

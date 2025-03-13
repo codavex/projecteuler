@@ -1,5 +1,7 @@
 #!/bin/python3
 
+""" https://projecteuler.net/problem=9 """
+
 import math
 import sys
 
