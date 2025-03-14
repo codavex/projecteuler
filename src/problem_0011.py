@@ -2,7 +2,6 @@
 
 """ https://projecteuler.net/problem=11 """
 
-import sys
 import numpy
 
 TEST_ARRAY = [
@@ -48,8 +47,13 @@ TEST_ARRAY = [
         33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ]
 
+def check_product(cell_1, cell_2, cell_3, cell_4, max_product):
+    test_value = cell_1 * cell_2 * cell_3 * cell_4
+    if test_value > max_product:
+        return test_value
+    return  max_product
 
-def main(argv):
+def main():
     limit = 4
 
     max_product = 0
@@ -57,45 +61,37 @@ def main(argv):
     for i in range(shape[0] - limit):
         for j in range(shape[1] - limit):
             # up/down
-            a = TEST_ARRAY[i][j]
-            b = TEST_ARRAY[i+1][j]
-            c = TEST_ARRAY[i+2][j]
-            d = TEST_ARRAY[i+3][j]
-            test_value = a * b * c * d
-            if test_value > max_product:
-                max_product = test_value
+            cell_1 = TEST_ARRAY[i][j]
+            cell_2 = TEST_ARRAY[i+1][j]
+            cell_3 = TEST_ARRAY[i+2][j]
+            cell_4 = TEST_ARRAY[i+3][j]
+            max_product = check_product(cell_1, cell_2, cell_3, cell_4, max_product)
 
             # left/right
-            a = TEST_ARRAY[i][j]
-            b = TEST_ARRAY[i][j+1]
-            c = TEST_ARRAY[i][j+2]
-            d = TEST_ARRAY[i][j+3]
-            test_value = a * b * c * d
-            if test_value > max_product:
-                max_product = test_value
+            cell_1 = TEST_ARRAY[i][j]
+            cell_2 = TEST_ARRAY[i][j+1]
+            cell_3 = TEST_ARRAY[i][j+2]
+            cell_4 = TEST_ARRAY[i][j+3]
+            max_product = check_product(cell_1, cell_2, cell_3, cell_4, max_product)
 
             # 1st diagonal
-            a = TEST_ARRAY[i][j]
-            b = TEST_ARRAY[i+1][j+1]
-            c = TEST_ARRAY[i+2][j+2]
-            d = TEST_ARRAY[i+3][j+3]
-            test_value = a * b * c * d
-            if test_value > max_product:
-                max_product = test_value
+            cell_1 = TEST_ARRAY[i][j]
+            cell_2 = TEST_ARRAY[i+1][j+1]
+            cell_3 = TEST_ARRAY[i+2][j+2]
+            cell_4 = TEST_ARRAY[i+3][j+3]
+            max_product = check_product(cell_1, cell_2, cell_3, cell_4, max_product)
 
     # other diagonal
     for i in range(limit-1, shape[0]):
         for j in range(shape[1] - limit + 1):
-            a = TEST_ARRAY[i][j]
-            b = TEST_ARRAY[i-1][j+1]
-            c = TEST_ARRAY[i-2][j+2]
-            d = TEST_ARRAY[i-3][j+3]
-            test_value = a * b * c * d
-            if test_value > max_product:
-                max_product = test_value
+            cell_1 = TEST_ARRAY[i][j]
+            cell_2 = TEST_ARRAY[i-1][j+1]
+            cell_3 = TEST_ARRAY[i-2][j+2]
+            cell_4 = TEST_ARRAY[i-3][j+3]
+            max_product = check_product(cell_1, cell_2, cell_3, cell_4, max_product)
 
     print(max_product)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

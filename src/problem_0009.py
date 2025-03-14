@@ -3,17 +3,16 @@
 """ https://projecteuler.net/problem=9 """
 
 import math
-import sys
 
 
-def main(argv):
-    for a in range(1, 1000):
-        for b in range(a, 1000):
-            c = math.sqrt((a * a) + (b * b))
-            if a + b + c == 1000:
-                if c * c == (a * a) + (b * b):
-                    print(a * b * int(c))
+def main():
+    for i in range(1, 1000):
+        for j in range(i, 1000):
+            k = math.sqrt((i * i) + (j * j))
+            if i + j + k == 1000:
+                if k * k == (i * i) + (j * j):
+                    print(i * j * int(k))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

@@ -2,8 +2,6 @@
 
 """ https://projecteuler.net/problem=13 """
 
-import sys
-
 testNumbers = [
     37107287533902102798797998220837590246510135740250,
     46376937677490009712648124896970078050417018260538,
@@ -107,7 +105,7 @@ testNumbers = [
     53503534226472524250874054075591789781264330331690]
 
 
-def main(argv):
+def main():
     summation = 0
     for i in testNumbers:
         summation += i
@@ -115,4 +113,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
