@@ -1,5 +1,7 @@
 #!/bin/python3
 
+""" https://projecteuler.net/problem=1 """
+
 import getopt
 import sys
 
@@ -30,9 +32,9 @@ def main(argv):
           sum_divisible_by(limit, 15))
 
 
-def sum_divisible_by(limit, n):
-    p = int((limit-1) / n)
-    return int(n*(p*(p+1)) / 2)
+def sum_divisible_by(limit, i):
+    j = int((limit-1) / i)
+    return int(i*(j*(j+1)) / 2)
 
 
 if __name__ == "__main__":

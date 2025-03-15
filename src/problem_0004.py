@@ -1,9 +1,9 @@
 #!/bin/python3
 
-import sys
+""" https://projecteuler.net/problem=4 """
 
 
-def main(argv):
+def main():
     largest_palindrome = 0
     for i in range(100, 999):
         for j in range(i, 999):
@@ -16,4 +16,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
