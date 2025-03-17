@@ -25,3 +25,4 @@ pycodestyle *.py,
 ./problem_0015.py -l 1,2
 ./problem_0015.py -l 2,6
 ./problem_0015.py -l 20,137846528820
+./problem_0016.py -l 15,26
