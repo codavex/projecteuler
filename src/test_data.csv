@@ -31,3 +31,4 @@ pycodestyle *.py,
 ./problem_0018.py -f 0018_triangle_small.txt,23
 ./problem_0018.py -f 0018_triangle.txt,1074
 ./problem_0019.py,171
+./problem_0020.py -l 10,27
