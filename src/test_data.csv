@@ -36,3 +36,4 @@ pycodestyle *.py,
 ./problem_0021.py,31626
 ./problem_0022.py,871198282
 #./problem_0023.py,4179871
+current_problem.csv:#./0024.py,2783915460
