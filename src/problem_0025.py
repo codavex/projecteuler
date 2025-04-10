@@ -1,6 +1,6 @@
 #!/bin/python3
 
-""" https://projecteuler.net/problem=23 """
+""" https://projecteuler.net/problem=25 """
 
 import getopt
 import sys
