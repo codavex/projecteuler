@@ -38,3 +38,4 @@ pycodestyle *.py,
 #./problem_0023.py,4179871
 #./problem_0024.py,2783915460
 ./problem_0025.py -l 3,12
+./problem_0025.py -l 1000,4782
