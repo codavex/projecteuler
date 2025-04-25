@@ -40,3 +40,4 @@ pycodestyle *.py,
 ./problem_0025.py -l 3,12
 ./problem_0025.py -l 1000,4782
 #./problem_0027.py,-59231
+./problem_0028.py -l 5,101
